@@ -64,6 +64,8 @@ environments {
 
 // log4j configuration
 log4j = {
+	info "grails.app"
+	
     // Example of changing the log pattern for the default console
     // appender:
     //
