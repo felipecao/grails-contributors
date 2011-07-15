@@ -85,3 +85,6 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+
+github.url = 'http://github.com/api/v2/json/'
