@@ -9,7 +9,15 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<g:layoutBody/>
+		<div id="wrapper">
+			<g:link controller="home"><img src="${resource(dir: 'images', file: 'logo.jpg')}" alt="Grails Contributors"/></g:link>
+			<div id="content">
+				<g:layoutBody/>
+			</div>
+			<div id="footer">
+				Licensed under the terms of the Apache License, Version 2.0. Source code available on <a href="https://github.com/bobbywarner/grails-contributors" target="_blank">GitHub</a>.
+			</div>
+		</div>
 		<g:javascript library="application"/>
 	</body>
 </html>

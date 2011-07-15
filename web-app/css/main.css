@@ -1,3 +1,52 @@
-body, input, select, textarea {
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	background-color: #ccc;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 14px;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+ul {
+	margin: 0 0 10px 20px;
+}
+
+li {
+	padding: 0 0 5px 0;
+}
+
+#wrapper {
+	width: 900px;
+	margin: auto;
+	background-color: #fff;
+	padding: 10px;
+}
+
+#content {
+	border-top: 2px solid #ccc;
+	padding: 10px;
+}
+
+#leftCol {
+	width: 430px;
+	float: left;
+}
+
+#rightCol {
+	width: 430px;
+	float: right;
+}
+
+#footer {
+	border-top: 2px solid #ccc;
+	clear: both;
+	text-align: center;
+	font-size: 11px;
 }
