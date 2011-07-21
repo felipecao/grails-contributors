@@ -1,3 +1,5 @@
+package org.grails.contributors
+
 /*
 * Copyright 2011 Bobby Warner
 *
@@ -13,24 +15,22 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-package org.grails.contributors
-
-class Contributor {
-	String repo
-	String login
-	Integer contributions
-	String email
-	String location
-	String company
-	String name
-	String blog
+class Commit {
+    String commitId
+    String url
+    String committerLogin
+    String committerEmail
+    String message
+    Date commitDate
+    Date dateCreated
 
     static constraints = {
-		email(nullable: true, email: true)
-		location(nullable: true)
-		company(nullable: true)
-		name(nullable: true)
-		blog(nullable: true)
+        commitId(nullable: false, unique: true)
+        url(nullable: false)
+        committerLogin(nullable: false)
+        committerEmail(nullable: false)
+        message(size: 1..4000)
+        // TODO: convert from "2010-12-09T13:50:17-08:00" to Date
+        commitDate(nullable: true)
     }
 }

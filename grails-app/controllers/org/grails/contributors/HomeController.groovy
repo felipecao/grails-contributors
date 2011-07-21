@@ -24,4 +24,10 @@ class HomeController {
 		
 		[coreContributors: Contributor.findAllByRepo("core"), docContributors: Contributor.findAllByRepo("doc")]
 	}
+
+    def commits = {
+        refreshService.commits()
+        def allCommits = Commit.list(sort: "commitDate", order: "desc")
+        [commits: allCommits]
+    }
 }

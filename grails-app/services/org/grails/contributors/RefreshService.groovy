@@ -28,6 +28,32 @@ class RefreshService {
     static transactional = false
     static scope = "singleton"
 
+    def commits(){
+        log.debug "ENTER RefreshService#commits"
+
+        if(Commit.count() == 0){
+            def baseUrl = ConfigurationHolder.config.github.url
+            def commitsCall = "commits/list/grails/grails-core/master"
+            def commitsUrl = new URL(baseUrl + commitsCall)
+            def commitsResult = new JsonSlurper().parseText(commitsUrl.getText())
+
+            commitsResult.commits.each {commit ->
+                // (felipe)
+                // IMPORTANT: Commit#commitId is constrained as unique. I'm not checking whether
+                // a given commit id is already present on DB. If a commit has already been
+                // persisted, no exception will be raised, and life goes on.
+                // I've done this to improve performance: instead of a DB operation to check
+                // whether it exists, and another one to persist it, we always try to persist,
+                // meaning one less DB operation. We should be careful and see if it's really
+                // being more "performatic".
+                new Commit(commitId: commit.id, url: commit.url,
+                        committerLogin: commit.committer.name,
+                        committerEmail: commit.committer.email,
+                        message: commit.message).save()
+            }
+        }
+    }
+
     def contributors() {	
 		log.info("Contributors refresh method called")
 		

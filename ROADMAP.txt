@@ -1,0 +1,7 @@
+TODO list:
+- remove empty tests
+- add tests for entities (spock plugin does not support groovy-1.8 yet, wait for grails-2.0-final?)
+- add tests for services (spock plugin does not support groovy-1.8 yet, wait for grails-2.0-final?)
+- implement "commits"
+- move to NoSQL (MongoDB?)
+- ...

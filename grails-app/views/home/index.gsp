@@ -6,6 +6,7 @@
 	<body>
 		<div id="leftCol">
 		<h1>Grails-Core</h1>
+        <g:link action="commits">Commits</g:link>
 		<ul>
 			<g:each var="c" in="${coreContributors}">
 				<li><a target="_blank" href="https://github.com/${c.login}">${c.login}</a>: ${c.contributions}</li>

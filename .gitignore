@@ -11,3 +11,6 @@ target
 /plugins
 /web-app/plugins
 /web-app/WEB-INF/classes
+.idea
+out
+*.iml
